@@ -124,13 +124,20 @@ extension RequestCreator {
     let operationData = try serializationFormat.serialize(value: fields)
     formData.appendPart(data: operationData, name: "operations")
 
+    var fieldNames = [String: [GraphQLFile]]()
+    files.enumerated().forEach { (index, file) in
+      fieldNames[file.fieldName, default: []].append(file)
+    }
     var map = [String: [String]]()
-    if files.count == 1 {
-      let firstFile = files.first!
-      map["0"] = ["variables.\(firstFile.fieldName)"]
-    } else {
-      for (index, file) in files.enumerated() {
-        map["\(index)"] = ["variables.\(file.fieldName).\(index)"]
+    files.enumerated().forEach { (fileIndex, file) in
+      if let fieldName = fieldNames[file.fieldName] {
+        if fieldName.count == 1 {
+          map["\(fileIndex)"] = ["variables.\(file.fieldName)"]
+        } else if fieldName.count > 1 {
+          fieldName.enumerated().forEach { (fieldNameIndex, file) in
+            map["\(fileIndex)"] = ["variables.\(file.fieldName).\(fieldNameIndex)"]
+          }
+        }
       }
     }
 
