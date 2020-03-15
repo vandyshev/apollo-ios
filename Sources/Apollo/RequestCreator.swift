@@ -124,24 +124,23 @@ extension RequestCreator {
     let operationData = try serializationFormat.serialize(value: fields)
     formData.appendPart(data: operationData, name: "operations")
 
-    var fieldNames = [String: [GraphQLFile]]()
+    var map = [String: [String: String]]()
     files.enumerated().forEach { (index, file) in
-      fieldNames[file.fieldName, default: []].append(file)
-    }
-    var map = [String: [String]]()
-    files.enumerated().forEach { (fileIndex, file) in
-      if let fieldName = fieldNames[file.fieldName] {
-        if fieldName.count == 1 {
-          map["\(fileIndex)"] = ["variables.\(file.fieldName)"]
-        } else if fieldName.count > 1 {
-          fieldName.enumerated().forEach { (fieldNameIndex, file) in
-            map["\(fileIndex)"] = ["variables.\(file.fieldName).\(fieldNameIndex)"]
-          }
-        }
+      var field = map[file.fieldName, default: [:]]
+      if field.count == 0 {
+        field["\(index)"] = "variables.\(file.fieldName)"
+      } else if field.count == 1 {
+        field = field.mapValues { return $0 + ".0" }
+        field["\(index)"] = "variables.\(file.fieldName).\(field.count)"
+      } else {
+        field["\(index)"] = "variables.\(file.fieldName).\(field.count)"
       }
+      map[file.fieldName] = field
     }
 
-    let mapData = try serializationFormat.serialize(value: map)
+    let mapValue = Dictionary(uniqueKeysWithValues: map.flatMap { $0.1 }.map { ($0.0, [$0.1]) })
+
+    let mapData = try serializationFormat.serialize(value: mapValue)
     formData.appendPart(data: mapData, name: "map")
 
     for (index, file) in files.enumerated() {
