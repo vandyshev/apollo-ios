@@ -5,6 +5,7 @@ import TSCUtility
 enum Target {
     case starWars
     case gitHub
+    case fileUpload
     
     init?(name: String) {
         switch name {
@@ -12,6 +13,8 @@ enum Target {
             self = .starWars
         case "GitHub":
             self = .gitHub
+        case "FileUpload":
+            self = .fileUpload
         default:
             return nil
         }
@@ -27,6 +30,10 @@ enum Target {
             return sourceRootURL
                 .appendingPathComponent("Sources")
                 .appendingPathComponent("StarWarsAPI")
+        case .fileUpload:
+            return sourceRootURL
+                .appendingPathComponent("Sources")
+                .appendingPathComponent("FileUploadAPI")
         }
     }
     
@@ -45,6 +52,8 @@ enum Target {
                                         outputFormat: .singleFile(atFileURL: outputFileURL),
                                         suppressSwiftMultilineStringLiterals: true,
                                         urlToSchemaFile: json)
+        case .fileUpload:
+            return ApolloCodegenOptions(targetRootURL: targetRootURL)
         }
     }
 }

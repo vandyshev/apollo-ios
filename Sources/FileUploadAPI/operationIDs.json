@@ -1,0 +1,14 @@
+{
+  "b0340d31b2d59a93e6674ead1b4ab0b0e092ec2b6c5875fad28f17ab6b50c01d": {
+    "name": "MultipleUpload",
+    "source": "mutation MultipleUpload($files: [Upload!]!) {\n  multipleUpload(files: $files) {\n    __typename\n    id\n    path\n    filename\n    mimetype\n  }\n}"
+  },
+  "3f7ac3c0d5e27dd53137ddf46545eab90d831bc66f46a6d0a0e64ba70582aa40": {
+    "name": "SingleUpload",
+    "source": "mutation SingleUpload($file: Upload!) {\n  singleUpload(file: $file) {\n    __typename\n    id\n    path\n    filename\n    mimetype\n  }\n}"
+  },
+  "11a4e191e09f459ae8a647e8f23d2798740b23273f64abfcfa71da52edff8612": {
+    "name": "SingleUploadTwice",
+    "source": "mutation SingleUploadTwice($file1: Upload!, $file2: Upload!) {\n  file1: singleUpload(file: $file1) {\n    __typename\n    id\n    path\n    filename\n    mimetype\n  }\n  file2: singleUpload(file: $file2) {\n    __typename\n    id\n    path\n    filename\n    mimetype\n  }\n}"
+  }
+}
