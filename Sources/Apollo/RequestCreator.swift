@@ -129,21 +129,21 @@ extension RequestCreator {
 
     let operationData = try serializationFormat.serialize(value: fields)
     formData.appendPart(data: operationData, name: "operations")
-    
+
     // Map field name variables array ["variables.fieldName"] to JSONEncodable dictionary ["0" : "variables.fieldName"]
     let value = Dictionary(uniqueKeysWithValues: map.enumerated().map { ("\($0.0)", [$0.1]) })
     
     let mapData = try serializationFormat.serialize(value: value)
     formData.appendPart(data: mapData, name: "map")
-    
+
     for (index, file) in files.enumerated() {
       formData.appendPart(inputStream: try file.generateInputStream(),
                           contentLength: file.contentLength,
                           name: "\(index)",
-        contentType: file.mimeType,
-        filename: file.originalName)
+                          contentType: file.mimeType,
+                          filename: file.originalName)
     }
-    
+
     return formData
   }
 }
