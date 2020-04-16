@@ -3,6 +3,10 @@
     "name": "MultipleUpload",
     "source": "mutation MultipleUpload($files: [Upload!]!) {\n  multipleUpload(files: $files) {\n    __typename\n    id\n    path\n    filename\n    mimetype\n  }\n}"
   },
+  "ba01cc6f40a36b96a17826335e7f26b6361525adc95c210a8de42de63f54ef78": {
+    "name": "NestedUpload",
+    "source": "mutation NestedUpload($topFile: Upload, $topFileList: [Upload], $nested: NestedObject) {\n  nestedUpload(topFile: $topFile, topFileList: $topFileList, nested: $nested)\n}"
+  },
   "3f7ac3c0d5e27dd53137ddf46545eab90d831bc66f46a6d0a0e64ba70582aa40": {
     "name": "SingleUpload",
     "source": "mutation SingleUpload($file: Upload!) {\n  singleUpload(file: $file) {\n    __typename\n    id\n    path\n    filename\n    mimetype\n  }\n}"

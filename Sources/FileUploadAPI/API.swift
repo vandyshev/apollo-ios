@@ -4,6 +4,65 @@
 import Apollo
 import Foundation
 
+public struct NestedObject: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - recursiveNested
+  ///   - text
+  ///   - file
+  ///   - fileList
+  ///   - textList
+  public init(recursiveNested: Swift.Optional<[NestedObject?]?> = nil, text: Swift.Optional<String?> = nil, file: Swift.Optional<String?> = nil, fileList: Swift.Optional<[String?]?> = nil, textList: Swift.Optional<[String?]?> = nil) {
+    graphQLMap = ["recursiveNested": recursiveNested, "text": text, "file": file, "fileList": fileList, "textList": textList]
+  }
+
+  public var recursiveNested: Swift.Optional<[NestedObject?]?> {
+    get {
+      return graphQLMap["recursiveNested"] as? Swift.Optional<[NestedObject?]?> ?? Swift.Optional<[NestedObject?]?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "recursiveNested")
+    }
+  }
+
+  public var text: Swift.Optional<String?> {
+    get {
+      return graphQLMap["text"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "text")
+    }
+  }
+
+  public var file: Swift.Optional<String?> {
+    get {
+      return graphQLMap["file"] as? Swift.Optional<String?> ?? Swift.Optional<String?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "file")
+    }
+  }
+
+  public var fileList: Swift.Optional<[String?]?> {
+    get {
+      return graphQLMap["fileList"] as? Swift.Optional<[String?]?> ?? Swift.Optional<[String?]?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "fileList")
+    }
+  }
+
+  public var textList: Swift.Optional<[String?]?> {
+    get {
+      return graphQLMap["textList"] as? Swift.Optional<[String?]?> ?? Swift.Optional<[String?]?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "textList")
+    }
+  }
+}
+
 public final class MultipleUploadMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -123,6 +182,61 @@ public final class MultipleUploadMutation: GraphQLMutation {
         set {
           resultMap.updateValue(newValue, forKey: "mimetype")
         }
+      }
+    }
+  }
+}
+
+public final class NestedUploadMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation NestedUpload($topFile: Upload, $topFileList: [Upload], $nested: NestedObject) {
+      nestedUpload(topFile: $topFile, topFileList: $topFileList, nested: $nested)
+    }
+    """
+
+  public let operationName: String = "NestedUpload"
+
+  public let operationIdentifier: String? = "ba01cc6f40a36b96a17826335e7f26b6361525adc95c210a8de42de63f54ef78"
+
+  public var topFile: String?
+  public var topFileList: [String?]?
+  public var nested: NestedObject?
+
+  public init(topFile: String? = nil, topFileList: [String?]? = nil, nested: NestedObject? = nil) {
+    self.topFile = topFile
+    self.topFileList = topFileList
+    self.nested = nested
+  }
+
+  public var variables: GraphQLMap? {
+    return ["topFile": topFile, "topFileList": topFileList, "nested": nested]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("nestedUpload", arguments: ["topFile": GraphQLVariable("topFile"), "topFileList": GraphQLVariable("topFileList"), "nested": GraphQLVariable("nested")], type: .scalar(String.self)),
+    ]
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(nestedUpload: String? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "nestedUpload": nestedUpload])
+    }
+
+    public var nestedUpload: String? {
+      get {
+        return resultMap["nestedUpload"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "nestedUpload")
       }
     }
   }

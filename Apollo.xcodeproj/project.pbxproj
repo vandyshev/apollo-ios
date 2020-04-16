@@ -12,8 +12,8 @@
 		5BB2C0232380836100774170 /* VersionNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB2C0222380836100774170 /* VersionNumberTests.swift */; };
 		7E34CBE924488B32007A56D6 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E34CBE724488B32007A56D6 /* API.swift */; };
 		7ECD21FE24488D2E009DE354 /* FileUploadAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE8E18A244882CA001573F3 /* FileUploadAPI.framework */; };
+		7ECD22002448BAE7009DE354 /* FileUploadAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ECD21FF2448BAE7009DE354 /* FileUploadAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE8E183244882CA001573F3 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC750441D2A532C00458D91 /* Apollo.framework */; };
-		7EE8E185244882CA001573F3 /* GitHubAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BDF200C23FDC37600153E2B /* GitHubAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B0E4718240AF6D70093BDA7 /* ASTVariableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E4717240AF6D70093BDA7 /* ASTVariableType.swift */; };
 		9B0E471A240AFA060093BDA7 /* VariableToSwiftTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E4719240AFA060093BDA7 /* VariableToSwiftTypeTests.swift */; };
 		9B0E471C240B167C0093BDA7 /* String+Apollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E471B240B167C0093BDA7 /* String+Apollo.swift */; };
@@ -359,6 +359,8 @@
 		7E34CBE624488A8F007A56D6 /* Apollo-Target-FileUploadAPI.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Apollo-Target-FileUploadAPI.xcconfig"; sourceTree = "<group>"; };
 		7E34CBE724488B32007A56D6 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		7E34CBE824488B32007A56D6 /* operationIDs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = operationIDs.json; sourceTree = "<group>"; };
+		7ECD21FF2448BAE7009DE354 /* FileUploadAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUploadAPI.h; sourceTree = "<group>"; };
+		7ECD22012448BB6C009DE354 /* NestedUpload.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NestedUpload.graphql; sourceTree = "<group>"; };
 		7EE8E18A244882CA001573F3 /* FileUploadAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FileUploadAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE8E18F24488397001573F3 /* SingleUploadTwice.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SingleUploadTwice.graphql; sourceTree = "<group>"; };
 		7EE8E19024488397001573F3 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
@@ -701,10 +703,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ECD21FE24488D2E009DE354 /* FileUploadAPI.framework in Frameworks */,
 				9FC7504F1D2A532D00458D91 /* Apollo.framework in Frameworks */,
 				9F8A958D1EC0FFAB00304A2D /* ApolloTestSupport.framework in Frameworks */,
 				9FCE2D091E6C254700E34457 /* StarWarsAPI.framework in Frameworks */,
+				7ECD21FE24488D2E009DE354 /* FileUploadAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,12 +725,14 @@
 			isa = PBXGroup;
 			children = (
 				7E34CBE724488B32007A56D6 /* API.swift */,
-				7E34CBE824488B32007A56D6 /* operationIDs.json */,
+				7ECD21FF2448BAE7009DE354 /* FileUploadAPI.h */,
 				7EE8E19324488485001573F3 /* Info.plist */,
-				7EE8E18F24488397001573F3 /* SingleUploadTwice.graphql */,
-				7EE8E19024488397001573F3 /* schema.json */,
 				7EE8E19124488397001573F3 /* MultipleUpload.graphql */,
+				7ECD22012448BB6C009DE354 /* NestedUpload.graphql */,
+				7E34CBE824488B32007A56D6 /* operationIDs.json */,
+				7EE8E19024488397001573F3 /* schema.json */,
 				7EE8E19224488397001573F3 /* SingleUpload.graphql */,
+				7EE8E18F24488397001573F3 /* SingleUploadTwice.graphql */,
 			);
 			name = FileUploadAPI;
 			path = Sources/FileUploadAPI;
@@ -1307,7 +1311,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EE8E185244882CA001573F3 /* GitHubAPI.h in Headers */,
+				7ECD22002448BAE7009DE354 /* FileUploadAPI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2268,21 +2272,21 @@
 /* Begin XCBuildConfiguration section */
 		7EE8E187244882CA001573F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90690D2222433C2800FC2E54 /* Apollo-Target-GitHubAPI.xcconfig */;
+			baseConfigurationReference = 7E34CBE624488A8F007A56D6 /* Apollo-Target-FileUploadAPI.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		7EE8E188244882CA001573F3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90690D2222433C2800FC2E54 /* Apollo-Target-GitHubAPI.xcconfig */;
+			baseConfigurationReference = 7E34CBE624488A8F007A56D6 /* Apollo-Target-FileUploadAPI.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
 		};
 		7EE8E189244882CA001573F3 /* PerformanceTesting */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90690D2222433C2800FC2E54 /* Apollo-Target-GitHubAPI.xcconfig */;
+			baseConfigurationReference = 7E34CBE624488A8F007A56D6 /* Apollo-Target-FileUploadAPI.xcconfig */;
 			buildSettings = {
 			};
 			name = PerformanceTesting;
