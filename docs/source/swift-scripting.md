@@ -28,16 +28,21 @@ To begin, let's set up a Swift Package Manager executable:
 4. Update the `dependencies` section to grab the Apollo iOS library:
 
     ```swift
-    .package(url: "https://github.com/apollographql/apollo-ios.git", 
-             from: "0.22.0")
+    .package(name: "Apollo",
+             url: "https://github.com/apollographql/apollo-ios.git", 
+             .upToNextMinor(from: "0.25.0"))
     ```
-  **NOTE**: The version should be identical to the version you're using in your main project. 
+  **NOTE**: The version should be identical to the version you're using in your main project. \
+
+  **ALSO NOTE**: Having to specify the name is a workaround for [SR-12110](https://bugs.swift.org/browse/SR-12210). Hopefully once that's fixed, SPM should pick up the name automatically. 
 
 5. For the main executable target in the `targets` section, add `ApolloCodegenLib` as a dependency: 
 
     ```swift
     .target(name: "Codegen",
-            dependencies: ["ApolloCodegenLib"])
+            dependencies: [                    
+                .product(name: "ApolloCodegenLib", package: "Apollo"),
+            ])
     ```
     
 6. In `main.swift`, import the Codegen lib at the top of the file:
@@ -245,16 +250,15 @@ Now, you're able to generate code from a debuggable Swift Package Manager execut
 1. Select the target in your project or workspace you want to run code generation, and go to the `Build Phases` tab. 
 
 2. Create a new Run Script Build Phase by selecting the **+** button in the upper left-hand corner:
+   ![New run script build phase dialog](screenshot/new_run_script_phase.png)
 
-  ![New run script build phase dialog](screenshot/new_run_script_phase.png)
-
-3. Update the build phase run script to `cd` into the folder where your executable's code lives, then run `swift run`. 
+3. Update the build phase run script to `cd` into the folder where your executable's code lives, then run `swift run` (using `xcrun` so that you can ensure it runs with the correct SDK, no matter what type of project you're building): 
 
     ```
     cd "${SRCROOT}"/Codegen
-    swift run
+    xcrun -sdk macosx swift run
     ```
-    
+
     >**Note**: If your package ever seems to have problems with caching, run `swift package clean` before `swift run` for a totally clean build. It is not recommended to do this by default, because it substantially increases build time.
     
 4. Build your target.

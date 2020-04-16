@@ -16,6 +16,10 @@
 		9B0E471E240B239D0093BDA7 /* ASTEnumValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0E471D240B239D0093BDA7 /* ASTEnumValue.swift */; };
 		9B1A38532332AF6F00325FB4 /* String+SHA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1A38522332AF6F00325FB4 /* String+SHA.swift */; };
 		9B1CCDD92360F02C007C9032 /* Bundle+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1CCDD82360F02C007C9032 /* Bundle+Helpers.swift */; };
+		9B21FD752422C29D00998B5C /* GraphQLFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B21FD742422C29D00998B5C /* GraphQLFileTests.swift */; };
+		9B21FD772422C8CC00998B5C /* TestFileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B21FD762422C8CC00998B5C /* TestFileHelper.swift */; };
+		9B21FD782424305700998B5C /* ExpectedEnumWithDifferentCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68F05F2416F80C00E97318 /* ExpectedEnumWithDifferentCases.swift */; };
+		9B21FD792424305E00998B5C /* ExpectedEnumWithSanitizedCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68F063241703B200E97318 /* ExpectedEnumWithSanitizedCases.swift */; };
 		9B518C87235F819E004C426D /* CLIDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B518C85235F8125004C426D /* CLIDownloader.swift */; };
 		9B518C8C235F8B5F004C426D /* ApolloFilePathHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B518C8A235F8B05004C426D /* ApolloFilePathHelper.swift */; };
 		9B518C8D235F8B9E004C426D /* CLIDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B518C88235F8AD4004C426D /* CLIDownloaderTests.swift */; };
@@ -34,8 +38,6 @@
 		9B68F0592416BA7700E97318 /* ExpectedEnumWithNoCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68F0582416BA7700E97318 /* ExpectedEnumWithNoCases.swift */; };
 		9B68F05B2416BCF100E97318 /* ExpectedEnumOmittingDeprecatedCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68F05A2416BCF100E97318 /* ExpectedEnumOmittingDeprecatedCases.swift */; };
 		9B68F05D2416BDCF00E97318 /* ExpectedEnumWithDeprecatedCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68F05C2416BDCF00E97318 /* ExpectedEnumWithDeprecatedCases.swift */; };
-		9B68F0602416F80C00E97318 /* ExpectedEnumWithDifferentCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68F05F2416F80C00E97318 /* ExpectedEnumWithDifferentCases.swift */; };
-		9B68F064241703B200E97318 /* ExpectedEnumWithSanitizedCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68F063241703B200E97318 /* ExpectedEnumWithSanitizedCases.swift */; };
 		9B6CB23E238077B70007259D /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6CB23D238077B60007259D /* Atomic.swift */; };
 		9B708AAD2305884500604A11 /* ApolloClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B708AAC2305884500604A11 /* ApolloClientProtocol.swift */; };
 		9B78C71E2326E86E000C8C32 /* ErrorGenerationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C71B2326E859000C8C32 /* ErrorGenerationTests.swift */; };
@@ -360,10 +362,13 @@
 		9B0E471D240B239D0093BDA7 /* ASTEnumValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTEnumValue.swift; sourceTree = "<group>"; };
 		9B1A38522332AF6F00325FB4 /* String+SHA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SHA.swift"; sourceTree = "<group>"; };
 		9B1CCDD82360F02C007C9032 /* Bundle+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Helpers.swift"; sourceTree = "<group>"; };
+		9B21FD742422C29D00998B5C /* GraphQLFileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLFileTests.swift; sourceTree = "<group>"; };
+		9B21FD762422C8CC00998B5C /* TestFileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFileHelper.swift; sourceTree = "<group>"; };
 		9B4AA8AD239EFDC9003E1300 /* Apollo-Target-CodegenTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Apollo-Target-CodegenTests.xcconfig"; sourceTree = "<group>"; };
 		9B518C85235F8125004C426D /* CLIDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLIDownloader.swift; sourceTree = "<group>"; };
 		9B518C88235F8AD4004C426D /* CLIDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLIDownloaderTests.swift; sourceTree = "<group>"; };
 		9B518C8A235F8B05004C426D /* ApolloFilePathHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloFilePathHelper.swift; sourceTree = "<group>"; };
+		9B5A1EE3243284F300F066BB /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		9B60204E23FDFA9F00D0C8E0 /* SQLiteCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteCacheTests.swift; sourceTree = "<group>"; };
 		9B64F6752354D219002D1BB5 /* URL+QueryDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+QueryDict.swift"; sourceTree = "<group>"; };
 		9B68F03A240D8D1800E97318 /* CodegenExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodegenExtensionTests.swift; sourceTree = "<group>"; };
@@ -721,6 +726,7 @@
 			children = (
 				C3279FC52345233000224790 /* TestCustomRequestCreator.swift */,
 				9B64F6752354D219002D1BB5 /* URL+QueryDict.swift */,
+				9B21FD762422C8CC00998B5C /* TestFileHelper.swift */,
 			);
 			name = TestHelpers;
 			sourceTree = "<group>";
@@ -1083,6 +1089,7 @@
 		9FC7503A1D2A532C00458D91 = {
 			isa = PBXGroup;
 			children = (
+				9B5A1EE3243284F300F066BB /* Package.swift */,
 				9FC750461D2A532C00458D91 /* Apollo */,
 				9B7B6F50233C26E400F32205 /* ApolloCodegenLib */,
 				9B7BDACC23FDEBE300ACD198 /* ApolloSQLite */,
@@ -1150,6 +1157,7 @@
 				9B78C71B2326E859000C8C32 /* ErrorGenerationTests.swift */,
 				9F8622F91EC2117C00C38162 /* FragmentConstructionAndConversionTests.swift */,
 				9B95EDBF22CAA0AF00702BB2 /* GETTransformerTests.swift */,
+				9B21FD742422C29D00998B5C /* GraphQLFileTests.swift */,
 				9BF1A94C22CA54F9005292C2 /* HTTPTransportTests.swift */,
 				9FF90A6A1DDDEB420034C3B6 /* InputValueEncodingTests.swift */,
 				E86D8E03214B32DA0028EFE1 /* JSONTests.swift */,
@@ -1773,7 +1781,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"${SRCROOT}/SwiftScripts\"\nswift run Codegen -t \"GitHub\"\n";
+			shellScript = "cd \"${SRCROOT}/SwiftScripts\"\nxcrun -sdk macosx swift run Codegen -t \"GitHub\"\n";
 		};
 		9FCE2D061E6C251100E34457 /* Generate Apollo Client API */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1787,7 +1795,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"${SRCROOT}/SwiftScripts\"\nswift run Codegen -t \"StarWars\"\n";
+			shellScript = "cd \"${SRCROOT}/SwiftScripts\"\nxcrun -sdk macosx swift run Codegen -t \"StarWars\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1882,8 +1890,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B68F0572416B5F700E97318 /* ExpectedEpisodeEnumNoDescription.swift in Sources */,
+				9B21FD782424305700998B5C /* ExpectedEnumWithDifferentCases.swift in Sources */,
 				9B68F04F2413271D00E97318 /* EnumGenerationTests.swift in Sources */,
 				9BAEEC10234BB95B00808306 /* FileManagerExtensionsTests.swift in Sources */,
+				9B21FD792424305E00998B5C /* ExpectedEnumWithSanitizedCases.swift in Sources */,
 				9B68F0532415B1C800E97318 /* ExpectedEpisodeEnum.swift in Sources */,
 				9BAEEC17234C275600808306 /* ApolloSchemaTests.swift in Sources */,
 				9B0E471A240AFA060093BDA7 /* VariableToSwiftTypeTests.swift in Sources */,
@@ -1980,10 +1990,8 @@
 				9BEDC79E22E5D2CF00549BF6 /* RequestCreator.swift in Sources */,
 				9BE071AD2368D08700FA5952 /* Collection+Helpers.swift in Sources */,
 				9FA6F3681E65DF4700BF8D73 /* GraphQLResultAccumulator.swift in Sources */,
-				9B68F0602416F80C00E97318 /* ExpectedEnumWithDifferentCases.swift in Sources */,
 				9FF90A651DDDEB100034C3B6 /* GraphQLExecutor.swift in Sources */,
 				9FC750611D2A59C300458D91 /* GraphQLOperation.swift in Sources */,
-				9B68F064241703B200E97318 /* ExpectedEnumWithSanitizedCases.swift in Sources */,
 				9BDE43DF22C6708600FD7C7F /* GraphQLHTTPRequestError.swift in Sources */,
 				9B1CCDD92360F02C007C9032 /* Bundle+Helpers.swift in Sources */,
 				5AC6CA4322AAF7B200B7C94D /* GraphQLHTTPMethod.swift in Sources */,
@@ -2013,6 +2021,8 @@
 				9FE1C6E71E634C8D00C02284 /* PromiseTests.swift in Sources */,
 				9B64F6762354D219002D1BB5 /* URL+QueryDict.swift in Sources */,
 				9FADC8541E6B86D900C677E6 /* DataLoaderTests.swift in Sources */,
+				9B21FD772422C8CC00998B5C /* TestFileHelper.swift in Sources */,
+				9B21FD752422C29D00998B5C /* GraphQLFileTests.swift in Sources */,
 				E86D8E05214B32FD0028EFE1 /* JSONTests.swift in Sources */,
 				9F8622FA1EC2117C00C38162 /* FragmentConstructionAndConversionTests.swift in Sources */,
 				C338DF1722DD9DE9006AF33E /* RequestCreatorTests.swift in Sources */,
